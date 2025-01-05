@@ -1,0 +1,106 @@
+ 
+
+2025-01-05 06:13:00,099 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:13:00,100 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:13:20,088 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:20] "GET /socket.io/?EIO=4&transport=polling&t=PGquNQw HTTP/1.1" 200 -
+2025-01-05 06:13:20,273 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:20] "POST /socket.io/?EIO=4&transport=polling&t=PGquSbF&sid=UDbNLEwZ6gl2ylfWAAAA HTTP/1.1" 200 -
+2025-01-05 06:13:41,178 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:41] "GET /socket.io/?EIO=4&transport=polling&t=PGquSbG&sid=UDbNLEwZ6gl2ylfWAAAA HTTP/1.1" 200 -
+2025-01-05 06:13:41,234 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:41] "GET / HTTP/1.1" 200 -
+2025-01-05 06:13:41,245 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:41] "GET /socket.io/?EIO=4&transport=websocket&sid=UDbNLEwZ6gl2ylfWAAAA HTTP/1.1" 200 -
+2025-01-05 06:13:50,397 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:50] "GET /socket.io/?EIO=4&transport=polling&t=PGquXly HTTP/1.1" 200 -
+2025-01-05 06:13:50,419 [INFO] 192.168.178.95 - - [05/Jan/2025 06:13:50] "POST /socket.io/?EIO=4&transport=polling&t=PGquZ-q&sid=spuodaftBFyEj_CaAAAC HTTP/1.1" 200 -
+2025-01-05 06:14:02,387 [INFO] 192.168.178.95 - - [05/Jan/2025 06:14:02] "GET /socket.io/?EIO=4&transport=polling&t=PGquZ-q.0&sid=spuodaftBFyEj_CaAAAC HTTP/1.1" 200 -
+2025-01-05 06:14:11,500 [INFO] 192.168.178.95 - - [05/Jan/2025 06:14:11] "POST /socket.io/?EIO=4&transport=polling&t=PGqucwD&sid=spuodaftBFyEj_CaAAAC HTTP/1.1" 200 -
+2025-01-05 06:14:23,471 [INFO] 192.168.178.95 - - [05/Jan/2025 06:14:23] "GET /socket.io/?EIO=4&transport=polling&t=PGqucwD.0&sid=spuodaftBFyEj_CaAAAC HTTP/1.1" 200 -
+2025-01-05 06:18:47,803 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:18:47,804 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:19:06,103 [INFO] 192.168.178.95 - - [05/Jan/2025 06:19:06] "GET /socket.io/?EIO=4&transport=polling&t=PGqvhvD HTTP/1.1" 200 -
+2025-01-05 06:19:09,064 [INFO] 192.168.178.95 - - [05/Jan/2025 06:19:09] "GET /socket.io/?EIO=4&transport=polling&t=PGqvnm8 HTTP/1.1" 200 -
+2025-01-05 06:19:30,213 [INFO] 192.168.178.95 - - [05/Jan/2025 06:19:30] "POST /socket.io/?EIO=4&transport=polling&t=PGqvnnt&sid=Ioj5mPvnob4ryISyAAAB HTTP/1.1" 200 -
+2025-01-05 06:19:30,215 [INFO] 192.168.178.95 - - [05/Jan/2025 06:19:30] "GET /socket.io/?EIO=4&transport=polling&t=PGqvnnu&sid=Ioj5mPvnob4ryISyAAAB HTTP/1.1" 200 -
+2025-01-05 06:23:44,560 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:23:44,560 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:23:57,128 [INFO] 192.168.178.95 - - [05/Jan/2025 06:23:57] "GET /socket.io/?EIO=4&transport=polling&t=PGqwoy6 HTTP/1.1" 200 -
+2025-01-05 06:24:02,985 [INFO] 192.168.178.95 - - [05/Jan/2025 06:24:02] "GET /socket.io/?EIO=4&transport=polling&t=PGqwvXv HTTP/1.1" 200 -
+2025-01-05 06:24:24,076 [INFO] 192.168.178.95 - - [05/Jan/2025 06:24:24] "POST /socket.io/?EIO=4&transport=polling&t=PGqwvYH&sid=9-OFbFAMfrxNdODQAAAB HTTP/1.1" 200 -
+2025-01-05 06:24:24,078 [INFO] 192.168.178.95 - - [05/Jan/2025 06:24:24] "GET /socket.io/?EIO=4&transport=polling&t=PGqwvYI&sid=9-OFbFAMfrxNdODQAAAB HTTP/1.1" 200 -
+2025-01-05 06:25:21,383 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:25:21,383 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:25:38,092 [INFO] 192.168.178.95 - - [05/Jan/2025 06:25:38] "GET /socket.io/?EIO=4&transport=polling&t=PGqxBc2 HTTP/1.1" 200 -
+2025-01-05 06:25:39,986 [INFO] 192.168.178.95 - - [05/Jan/2025 06:25:39] "GET /socket.io/?EIO=4&transport=polling&t=PGqxHDW HTTP/1.1" 200 -
+2025-01-05 06:26:01,151 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:01] "POST /socket.io/?EIO=4&transport=polling&t=PGqxHDu&sid=7e_QS6TPeFiByt4vAAAB HTTP/1.1" 200 -
+2025-01-05 06:26:01,203 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:01] "GET / HTTP/1.1" 200 -
+2025-01-05 06:26:01,211 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:01] "GET /socket.io/?EIO=4&transport=websocket&sid=7e_QS6TPeFiByt4vAAAB HTTP/1.1" 200 -
+2025-01-05 06:26:01,301 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:01] "GET /socket.io/?EIO=4&transport=polling&t=PGqxMPb HTTP/1.1" 200 -
+2025-01-05 06:26:03,796 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:03] "POST /socket.io/?EIO=4&transport=polling&t=PGqxMQw&sid=XBwPZHoi7nuerGcGAAAD HTTP/1.1" 200 -
+2025-01-05 06:26:03,800 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:03] "GET /socket.io/?EIO=4&transport=polling&t=PGqxMQw.0&sid=XBwPZHoi7nuerGcGAAAD HTTP/1.1" 200 -
+2025-01-05 06:26:22,331 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:22] "POST /socket.io/?EIO=4&transport=polling&t=PGqxN1z&sid=XBwPZHoi7nuerGcGAAAD HTTP/1.1" 200 -
+2025-01-05 06:26:22,369 [INFO] 192.168.178.95 - - [05/Jan/2025 06:26:22] "GET /socket.io/?EIO=4&transport=polling&t=PGqxN1z.0&sid=XBwPZHoi7nuerGcGAAAD HTTP/1.1" 200 -
+2025-01-05 06:29:09,857 [ERROR] Invalid motor ID: 1
+2025-01-05 06:29:20,708 [ERROR] Invalid motor ID: 2
+2025-01-05 06:43:01,681 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:43:01,682 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:43:16,106 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:16] "GET /socket.io/?EIO=4&transport=polling&t=PGq_DvO HTTP/1.1" 200 -
+2025-01-05 06:43:16,342 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:16] "POST /socket.io/?EIO=4&transport=polling&t=PGq_J3O&sid=883OwAq19kOfSdPMAAAA HTTP/1.1" 200 -
+2025-01-05 06:43:37,256 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:37] "GET /socket.io/?EIO=4&transport=polling&t=PGq_J3O.0&sid=883OwAq19kOfSdPMAAAA HTTP/1.1" 200 -
+2025-01-05 06:43:37,314 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:37] "GET / HTTP/1.1" 200 -
+2025-01-05 06:43:37,337 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:37] "GET /socket.io/?EIO=4&transport=websocket&sid=883OwAq19kOfSdPMAAAA HTTP/1.1" 200 -
+2025-01-05 06:43:49,692 [INFO] 192.168.178.95 - - [05/Jan/2025 06:43:49] "GET /socket.io/?EIO=4&transport=polling&t=PGq_OF0 HTTP/1.1" 200 -
+2025-01-05 06:44:01,567 [INFO] 192.168.178.95 - - [05/Jan/2025 06:44:01] "POST /socket.io/?EIO=4&transport=polling&t=PGq_U7m&sid=SU-iYPJlNRTOi5BWAAAC HTTP/1.1" 200 -
+2025-01-05 06:44:01,570 [INFO] 192.168.178.95 - - [05/Jan/2025 06:44:01] "GET /socket.io/?EIO=4&transport=polling&t=PGq_U7n&sid=SU-iYPJlNRTOi5BWAAAC HTTP/1.1" 200 -
+2025-01-05 06:44:22,644 [INFO] 192.168.178.95 - - [05/Jan/2025 06:44:22] "POST /socket.io/?EIO=4&transport=polling&t=PGq_U9l&sid=SU-iYPJlNRTOi5BWAAAC HTTP/1.1" 200 -
+2025-01-05 06:44:22,649 [INFO] 192.168.178.95 - - [05/Jan/2025 06:44:22] "GET /socket.io/?EIO=4&transport=polling&t=PGq_U9l.0&sid=SU-iYPJlNRTOi5BWAAAC HTTP/1.1" 200 -
+2025-01-05 06:44:22,676 [INFO] Motor 1 (rotary_table) set to value 2
+2025-01-05 06:44:22,716 [INFO] Motor 1 (rotary_table) set to value 2
+2025-01-05 06:44:23,251 [INFO] Motor 1 acceleration set to 1
+2025-01-05 06:44:29,041 [INFO] Motor 2 (slider) set to value 2
+2025-01-05 06:44:33,139 [INFO] Motor 2 speed set to 3
+2025-01-05 06:44:37,953 [INFO] Motor 2 acceleration set to 4
+2025-01-05 06:44:43,687 [INFO] Motor 3 (pan) set to value 100
+2025-01-05 06:44:49,249 [INFO] Motor 3 speed set to 60
+2025-01-05 06:44:54,644 [INFO] Motor 3 acceleration set to 50
+2025-01-05 06:45:02,839 [INFO] Motor 4 (tilt) set to value 5
+2025-01-05 06:45:06,625 [INFO] Motor 4 speed set to 0
+2025-01-05 06:45:10,516 [INFO] Motor 4 acceleration set to 20
+2025-01-05 06:45:19,699 [INFO] Point saved to profile 22
+2025-01-05 06:45:29,258 [INFO] Profile Profile1 played successfully
+2025-01-05 06:45:30,962 [INFO] Profile Profile1 deleted
+2025-01-05 06:51:36,484 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:51:36,485 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 06:51:55,181 [INFO] 192.168.178.95 - - [05/Jan/2025 06:51:55] "GET /socket.io/?EIO=4&transport=polling&t=PGr1Ccn HTTP/1.1" 200 -
+2025-01-05 06:51:57,023 [INFO] 192.168.178.95 - - [05/Jan/2025 06:51:57] "GET /socket.io/?EIO=4&transport=polling&t=PGr1IE7 HTTP/1.1" 200 -
+2025-01-05 06:52:18,132 [INFO] 192.168.178.95 - - [05/Jan/2025 06:52:18] "POST /socket.io/?EIO=4&transport=polling&t=PGr1IEV&sid=LoyeWe7B6JM1iNIsAAAB HTTP/1.1" 200 -
+2025-01-05 06:52:18,137 [INFO] 192.168.178.95 - - [05/Jan/2025 06:52:18] "GET /socket.io/?EIO=4&transport=polling&t=PGr1IEW&sid=LoyeWe7B6JM1iNIsAAAB HTTP/1.1" 200 -
+2025-01-05 06:54:29,883 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 06:54:29,884 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 07:00:40,083 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.178.50:5000
+2025-01-05 07:00:40,083 [INFO] [33mPress CTRL+C to quit[0m
+2025-01-05 07:00:49,754 [INFO] 192.168.178.95 - - [05/Jan/2025 07:00:49] "GET / HTTP/1.1" 200 -
+2025-01-05 07:00:59,338 [INFO] 192.168.178.95 - - [05/Jan/2025 07:00:59] "GET /socket.io/?EIO=4&transport=polling&t=PGr3KIj HTTP/1.1" 200 -
+2025-01-05 07:01:10,911 [INFO] 192.168.178.95 - - [05/Jan/2025 07:01:10] "POST /socket.io/?EIO=4&transport=polling&t=PGr3Mdz&sid=tg3QuSAwCshmyPBtAAAA HTTP/1.1" 200 -
+2025-01-05 07:01:20,538 [INFO] 192.168.178.95 - - [05/Jan/2025 07:01:20] "GET /socket.io/?EIO=4&transport=polling&t=PGr3Md-&sid=tg3QuSAwCshmyPBtAAAA HTTP/1.1" 200 -
+2025-01-05 07:07:57,155 [INFO] 192.168.178.95 - - [05/Jan/2025 07:07:57] "GET /socket.io/?EIO=4&transport=websocket&sid=tg3QuSAwCshmyPBtAAAA HTTP/1.1" 200 -

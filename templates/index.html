@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Slider Control</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .motor-box {
+            background: #e8e8e8;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .motor-box h2 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .control {
+            margin-bottom: 10px;
+        }
+        .control label {
+            display: inline-block;
+            width: 140px;
+        }
+        .feedback {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 10px;
+        }
+        .motor-info {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 5px;
+        }
+        button {
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-panel">
+        <div class="motor-box">
+            <h2>Motor 1 (Rotation)</h2>
+            <div class="control">
+                <label for="motor1">RPM:</label>
+                <input type="number" id="motor1" />
+                <button onclick="sendCommand(1)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor1_acc">Acceleration:</label>
+                <input type="number" id="motor1_acc" />
+                <button onclick="setAcceleration(1)">Set</button>
+            </div>
+            <div class="feedback" id="feedback-motor1"></div>
+            <div class="motor-info">Min: 0 RPM, Max: 100 RPM</div>
+        </div>
+        <div class="motor-box">
+            <h2>Motor 2 (Slider)</h2>
+            <div class="control">
+                <label for="motor2">Position (mm):</label>
+                <input type="number" id="motor2" />
+                <button onclick="sendCommand(2)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor2_speed">Max Speed:</label>
+                <input type="number" id="motor2_speed" />
+                <button onclick="setSpeed(2)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor2_acc">Acceleration:</label>
+                <input type="number" id="motor2_acc" />
+                <button onclick="setAcceleration(2)">Set</button>
+            </div>
+            <div class="feedback" id="feedback-motor2"></div>
+            <div class="motor-info">Min: 0 mm, Max: 1000 mm</div>
+        </div>
+        <div class="motor-box">
+            <h2>Motor 3 (Pan)</h2>
+            <div class="control">
+                <label for="motor3">Position (°):</label>
+                <input type="number" id="motor3" />
+                <button onclick="sendCommand(3)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor3_speed">Max Speed:</label>
+                <input type="number" id="motor3_speed" />
+                <button onclick="setSpeed(3)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor3_acc">Acceleration:</label>
+                <input type="number" id="motor3_acc" />
+                <button onclick="setAcceleration(3)">Set</button>
+            </div>
+            <div class="feedback" id="feedback-motor3"></div>
+            <div class="motor-info">Min: -180°, Max: 180°</div>
+        </div>
+        <div class="motor-box">
+            <h2>Motor 4 (Tilt)</h2>
+            <div class="control">
+                <label for="motor4">Position (°):</label>
+                <input type="number" id="motor4" />
+                <button onclick="sendCommand(4)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor4_speed">Max Speed:</label>
+                <input type="number" id="motor4_speed" />
+                <button onclick="setSpeed(4)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor4_acc">Acceleration:</label>
+                <input type="number" id="motor4_acc" />
+                <button onclick="setAcceleration(4)">Set</button>
+            </div>
+            <div class="feedback" id="feedback-motor4"></div>
+            <div class="motor-info">Min: -90°, Max: 90°</div>
+        </div>
+
+        <div class="motor-box">
+            <h2>Create Profile</h2>
+            <div class="control">
+                <label for="profile_name">Profile Name:</label>
+                <input type="text" id="profile_name" />
+            </div>
+            <div class="control">
+                <button onclick="savePoint()">Save Current Point</button>
+                <button onclick="saveProfile()">Save Profile</button>
+            </div>
+        </div>
+
+        <div class="motor-box">
+            <h2>Manage Profiles</h2>
+            <div class="control">
+                <label for="profile_select">Select Profile:</label>
+                <select id="profile_select"></select>
+            </div>
+            <div class="control">
+                <label for="play_duration">Duration (seconds):</label>
+                <input type="number" id="play_duration" min="1" />
+                <button onclick="playProfile()">Play Profile</button>
+                <button onclick="deleteProfile()">Delete Profile</button>
+            </div>
+            <div class="feedback" id="profile-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+
+        const motorRanges = {
+            1: { min: 0, max: 100 },
+            2: { min: 0, max: 1000 },
+            3: { min: -180, max: 180 },
+            4: { min: -90, max: 90 },
+        };
+
+        function validateInput(value, min, max) {
+            return value >= min && value <= max;
+        }
+
+        function sendCommand(motorId) {
+            const value = parseInt(document.getElementById(`motor${motorId}`).value, 10);
+            if (validateInput(value, motorRanges[motorId].min, motorRanges[motorId].max)) {
+                socket.emit('motor_command', { motor_id: motorId, value });
+            } else {
+                alert(`Invalid input for Motor ${motorId}. Please enter a value between ${motorRanges[motorId].min} and ${motorRanges[motorId].max}.`);
+            }
+        }
+
+        function setSpeed(motorId) {
+            const value = parseInt(document.getElementById(`motor${motorId}_speed`).value, 10);
+            if (validateInput(value, 0, 100)) { // Assuming max speed is 100
+                socket.emit('motor_speed', { motor_id: motorId, speed: value });
+            } else {
+                alert(`Invalid speed for Motor ${motorId}. Please enter a value between 0 and 100.`);
+            }
+        }
+
+        function setAcceleration(motorId) {
+            const value = parseInt(document.getElementById(`motor${motorId}_acc`).value, 10);
+            if (validateInput(value, 0, 100)) { // Assuming max acceleration is 100
+                socket.emit('motor_acceleration', { motor_id: motorId, acceleration: value });
+            } else {
+                alert(`Invalid acceleration for Motor ${motorId}. Please enter a value between 0 and 100.`);
+            }
+        }
+
+        function savePoint() {
+            const profileName = document.getElementById('profile_name').value;
+            if (!profileName) {
+                alert('Please enter a profile name first.');
+                return;
+            }
+
+            const positions = {
+                1: parseInt(document.getElementById('motor1').value, 10) || 0,
+                2: parseInt(document.getElementById('motor2').value, 10) || 0,
+                3: parseInt(document.getElementById('motor3').value, 10) || 0,
+                4: parseInt(document.getElementById('motor4').value, 10) || 0
+            };
+
+            socket.emit('save_point', { profile_name: profileName, positions });
+        }
+
+        function saveProfile() {
+            const profileName = document.getElementById('profile_name').value;
+            if (!profileName) {
+                alert('Please enter a profile name first.');
+                return;
+            }
+
+            socket.emit('save_profile', { profile_name: profileName });
+        }
+
+        function playProfile() {
+            const profileName = document.getElementById('profile_select').value;
+            const duration = parseInt(document.getElementById('play_duration').value, 10) || 1;
+
+            if (!profileName) {
+                alert('Please select a profile to play.');
+                return;
+            }
+
+            socket.emit('play_profile', { profile_name: profileName, duration });
+        }
+
+        function deleteProfile() {
+            const profileName = document.getElementById('profile_select').value;
+
+            if (!profileName) {
+                alert('Please select a profile to delete.');
+                return;
+            }
+
+            socket.emit('delete_profile', { profile_name: profileName });
+        }
+
+        socket.on('profile_saved', (data) => {
+            document.getElementById('profile-feedback').textContent = `Profile "${data.profile_name}" saved successfully.`;
+        });
+
+        socket.on('profile_deleted', (data) => {
+            document.getElementById('profile-feedback').textContent = `Profile "${data.profile_name}" deleted successfully.`;
+        });
+
+        socket.on('profile_list', (data) => {
+            const profileSelect = document.getElementById('profile_select');
+            profileSelect.innerHTML = '';
+
+            data.profiles.forEach(profile => {
+                const option = document.createElement('option');
+                option.value = profile;
+                option.textContent = profile;
+                profileSelect.appendChild(option);
+            });
+        });
+
+        socket.on('error', (err) => {
+            alert(`Error: ${err.message}`);
+        });
+
+        // Request the list of profiles on load
+        socket.emit('get_profiles');
+    </script>
+</body>
+</html>
