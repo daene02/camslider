@@ -67,82 +67,7 @@
 </head>
 <body>
     <div class="control-panel">
-        <div class="motor-box">
-            <h2>Motor 1 (Rotation)</h2>
-            <div class="control">
-                <label for="motor1">RPM:</label>
-                <input type="number" id="motor1" />
-                <button onclick="sendCommand(1)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor1_acc">Acceleration:</label>
-                <input type="number" id="motor1_acc" />
-                <button onclick="setAcceleration(1)">Set</button>
-            </div>
-            <div class="feedback" id="feedback-motor1"></div>
-            <div class="motor-info">Min: 0 RPM, Max: 100 RPM</div>
-        </div>
-        <div class="motor-box">
-            <h2>Motor 2 (Slider)</h2>
-            <div class="control">
-                <label for="motor2">Position (mm):</label>
-                <input type="number" id="motor2" />
-                <button onclick="sendCommand(2)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor2_speed">Max Speed:</label>
-                <input type="number" id="motor2_speed" />
-                <button onclick="setSpeed(2)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor2_acc">Acceleration:</label>
-                <input type="number" id="motor2_acc" />
-                <button onclick="setAcceleration(2)">Set</button>
-            </div>
-            <div class="feedback" id="feedback-motor2"></div>
-            <div class="motor-info">Min: 0 mm, Max: 1000 mm</div>
-        </div>
-        <div class="motor-box">
-            <h2>Motor 3 (Pan)</h2>
-            <div class="control">
-                <label for="motor3">Position (°):</label>
-                <input type="number" id="motor3" />
-                <button onclick="sendCommand(3)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor3_speed">Max Speed:</label>
-                <input type="number" id="motor3_speed" />
-                <button onclick="setSpeed(3)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor3_acc">Acceleration:</label>
-                <input type="number" id="motor3_acc" />
-                <button onclick="setAcceleration(3)">Set</button>
-            </div>
-            <div class="feedback" id="feedback-motor3"></div>
-            <div class="motor-info">Min: -180°, Max: 180°</div>
-        </div>
-        <div class="motor-box">
-            <h2>Motor 4 (Tilt)</h2>
-            <div class="control">
-                <label for="motor4">Position (°):</label>
-                <input type="number" id="motor4" />
-                <button onclick="sendCommand(4)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor4_speed">Max Speed:</label>
-                <input type="number" id="motor4_speed" />
-                <button onclick="setSpeed(4)">Set</button>
-            </div>
-            <div class="control">
-                <label for="motor4_acc">Acceleration:</label>
-                <input type="number" id="motor4_acc" />
-                <button onclick="setAcceleration(4)">Set</button>
-            </div>
-            <div class="feedback" id="feedback-motor4"></div>
-            <div class="motor-info">Min: -90°, Max: 90°</div>
-        </div>
-
+        <!-- Create Profile -->
         <div class="motor-box">
             <h2>Create Profile</h2>
             <div class="control">
@@ -155,6 +80,7 @@
             </div>
         </div>
 
+        <!-- Load and Play Profile -->
         <div class="motor-box">
             <h2>Manage Profiles</h2>
             <div class="control">
@@ -169,48 +95,67 @@
             </div>
             <div class="feedback" id="profile-feedback"></div>
         </div>
+
+        <!-- Motor Controls -->
+        <div class="motor-box">
+            <h2>Motor 1 (Rotation)</h2>
+            <div class="control">
+                <label for="motor1">RPM:</label>
+                <input type="number" id="motor1" />
+                <button onclick="sendCommand(1)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor1_duration">Duration (ms):</label>
+                <input type="number" id="motor1_duration" min="1" max="10000" />
+                <button onclick="setDuration(1)">Set</button>
+            </div>
+        </div>
+
+        <div class="motor-box">
+            <h2>Motor 2 (Slider)</h2>
+            <div class="control">
+                <label for="motor2">Position (mm):</label>
+                <input type="number" id="motor2" />
+                <button onclick="sendCommand(2)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor2_duration">Duration (ms):</label>
+                <input type="number" id="motor2_duration" min="1" max="10000" />
+                <button onclick="setDuration(2)">Set</button>
+            </div>
+        </div>
+
+        <div class="motor-box">
+            <h2>Motor 3 (Pan)</h2>
+            <div class="control">
+                <label for="motor3">Position (°):</label>
+                <input type="number" id="motor3" />
+                <button onclick="sendCommand(3)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor3_duration">Duration (ms):</label>
+                <input type="number" id="motor3_duration" min="1" max="10000" />
+                <button onclick="setDuration(3)">Set</button>
+            </div>
+        </div>
+
+        <div class="motor-box">
+            <h2>Motor 4 (Tilt)</h2>
+            <div class="control">
+                <label for="motor4">Position (°):</label>
+                <input type="number" id="motor4" />
+                <button onclick="sendCommand(4)">Set</button>
+            </div>
+            <div class="control">
+                <label for="motor4_duration">Duration (ms):</label>
+                <input type="number" id="motor4_duration" min="1" max="10000" />
+                <button onclick="setDuration(4)">Set</button>
+            </div>
+        </div>
     </div>
 
     <script>
         const socket = io();
-
-        const motorRanges = {
-            1: { min: 0, max: 100 },
-            2: { min: 0, max: 1000 },
-            3: { min: -180, max: 180 },
-            4: { min: -90, max: 90 },
-        };
-
-        function validateInput(value, min, max) {
-            return value >= min && value <= max;
-        }
-
-        function sendCommand(motorId) {
-            const value = parseInt(document.getElementById(`motor${motorId}`).value, 10);
-            if (validateInput(value, motorRanges[motorId].min, motorRanges[motorId].max)) {
-                socket.emit('motor_command', { motor_id: motorId, value });
-            } else {
-                alert(`Invalid input for Motor ${motorId}. Please enter a value between ${motorRanges[motorId].min} and ${motorRanges[motorId].max}.`);
-            }
-        }
-
-        function setSpeed(motorId) {
-            const value = parseInt(document.getElementById(`motor${motorId}_speed`).value, 10);
-            if (validateInput(value, 0, 100)) { // Assuming max speed is 100
-                socket.emit('motor_speed', { motor_id: motorId, speed: value });
-            } else {
-                alert(`Invalid speed for Motor ${motorId}. Please enter a value between 0 and 100.`);
-            }
-        }
-
-        function setAcceleration(motorId) {
-            const value = parseInt(document.getElementById(`motor${motorId}_acc`).value, 10);
-            if (validateInput(value, 0, 100)) { // Assuming max acceleration is 100
-                socket.emit('motor_acceleration', { motor_id: motorId, acceleration: value });
-            } else {
-                alert(`Invalid acceleration for Motor ${motorId}. Please enter a value between 0 and 100.`);
-            }
-        }
 
         function savePoint() {
             const profileName = document.getElementById('profile_name').value;
@@ -262,13 +207,15 @@
             socket.emit('delete_profile', { profile_name: profileName });
         }
 
-        socket.on('profile_saved', (data) => {
-            document.getElementById('profile-feedback').textContent = `Profile "${data.profile_name}" saved successfully.`;
-        });
+        function sendCommand(motorId) {
+            const value = parseInt(document.getElementById(`motor${motorId}`).value, 10);
+            socket.emit('motor_command', { motor_id: motorId, value });
+        }
 
-        socket.on('profile_deleted', (data) => {
-            document.getElementById('profile-feedback').textContent = `Profile "${data.profile_name}" deleted successfully.`;
-        });
+        function setDuration(motorId) {
+            const duration = parseInt(document.getElementById(`motor${motorId}_duration`).value, 10);
+            socket.emit('set_duration', { motor_id: motorId, duration });
+        }
 
         socket.on('profile_list', (data) => {
             const profileSelect = document.getElementById('profile_select');
@@ -282,11 +229,14 @@
             });
         });
 
-        socket.on('error', (err) => {
-            alert(`Error: ${err.message}`);
+        socket.on('profile_saved', (data) => {
+            alert(`Profile "${data.profile_name}" saved successfully.`);
         });
 
-        // Request the list of profiles on load
+        socket.on('profile_deleted', (data) => {
+            alert(`Profile "${data.profile_name}" deleted successfully.`);
+        });
+
         socket.emit('get_profiles');
     </script>
 </body>

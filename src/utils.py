@@ -14,6 +14,7 @@ logging.basicConfig(
 )
 
 def log_message(message, level="info"):
+    print(message)
     """
     Log a message to the motor log file.
     """
@@ -74,9 +75,3 @@ def save_json(file_path, data):
     """
     with open(file_path, "w") as file:
         json.dump(data, file, indent=4)
-
-# Example usage:
-# log_message("Motor initialized successfully", level="info")
-# ticks = convert_to_ticks(90, 4096/360)  # Convert 90 degrees to ticks
-# ensure_directory_exists("profiles")
-# save_json("profiles/example.json", {"key": "value"})

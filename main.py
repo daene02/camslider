@@ -6,7 +6,6 @@ from src.motor_control import MotorController
 from src.utils import log_message, ensure_directory_exists, load_json, save_json
 from src.config import MOTOR_CONFIG, PROFILES_DIR, PROFILES_FILE
 
-
 # Flask setup
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -37,7 +36,7 @@ def index():
 def handle_motor_command(data):
     motor_id = int(data['motor_id'])
     value = data['value']
-    motor = MOTOR_CONFIG.get(motor_id)  # Access motor configuration by ID
+    motor = MOTOR_CONFIG.get(motor_id)
 
     if not motor:
         log_message(f"Invalid motor ID: {motor_id}", level="error")
@@ -46,7 +45,7 @@ def handle_motor_command(data):
 
     try:
         if motor['mode'] == 'velocity':
-            controller.set_velocity(motor_id, int(value))
+            controller.set_profile_velocity(motor_id, int(value))
         elif motor['mode'] == 'current_position':
             conversion_factor = 4096 / motor['conversion']
             ticks = int(value * conversion_factor)
@@ -62,13 +61,6 @@ def handle_motor_command(data):
 def handle_motor_speed(data):
     motor_id = int(data['motor_id'])
     speed = int(data['speed'])
-    motor = MOTOR_CONFIG.get(motor_id)
-
-    if not motor or speed > motor['max_speed']:
-        log_message(f"Invalid speed for motor {motor_id}: {speed}", level="error")
-        socketio.emit('error', {'message': f"Invalid speed for motor {motor_id}"})
-        return
-
     try:
         controller.set_profile_velocity(motor_id, speed)
         log_message(f"Motor {motor_id} speed set to {speed}")
@@ -81,7 +73,6 @@ def handle_motor_speed(data):
 def handle_motor_acceleration(data):
     motor_id = int(data['motor_id'])
     acceleration = int(data['acceleration'])
-
     try:
         controller.set_profile_acceleration(motor_id, acceleration)
         log_message(f"Motor {motor_id} acceleration set to {acceleration}")
@@ -113,7 +104,7 @@ def play_profile(data):
     try:
         for point in profiles[profile_name]:
             for motor_id, position in point.items():
-                motor = MOTOR_CONFIG.get(int(motor_id))  # Ensure motor_id is an integer
+                motor = MOTOR_CONFIG.get(int(motor_id))
                 if not motor:
                     log_message(f"Invalid motor ID in profile: {motor_id}", level="error")
                     continue
@@ -123,7 +114,7 @@ def play_profile(data):
                     ticks = int(position * conversion_factor)
                     controller.set_position(int(motor_id), ticks)
                 elif motor['mode'] == 'velocity':
-                    controller.set_velocity(int(motor_id), position)
+                    controller.set_profile_velocity(int(motor_id), position)
             socketio.sleep(duration)
         log_message(f"Profile {profile_name} played successfully")
     except Exception as e:
